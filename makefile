@@ -1,10 +1,12 @@
+IMAGE_NAME=archlinux
+
 base:
 	export DOCKER_BUILDKIT=1
 	export BUILDKIT_PROGRESS=tty
 
 	docker build \
 		--build-arg usr=yay \
-		-t archlinux:latest _base
+		-t $(IMAGE_NAME):latest _base
 
 multilib:
 	export DOCKER_BUILDKIT=1
@@ -12,5 +14,5 @@ multilib:
 
 	docker build \
 		--build-arg usr=yay \
-		-t archlinux:multilib-devel _multilib
+		-t $(IMAGE_NAME):multilib _multilib
 
