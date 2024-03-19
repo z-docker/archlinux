@@ -1,4 +1,4 @@
-FROM archlinux/archlinux:latest
+FROM archlinux/archlinux:base-devel
 LABEL maintainer="Zero <github.com/z-nerd>" 
 LABEL description="Zero custom archlinux" 
 
@@ -8,7 +8,7 @@ COPY pacman.conf /etc/pacman.conf
 RUN pacman-key --init && \
   pacman -Syu --noconfirm
 
-RUN pacman -S --needed --noconfirm base-devel sudo wget curl git unzip unrar \
+RUN pacman -S --needed --noconfirm sudo wget curl git unzip unrar \
   zsh grml-zsh-config zsh-completions less vim reflector && \
   yes | sudo pacman -Scc
 
